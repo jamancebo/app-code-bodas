@@ -6,34 +6,50 @@ namespace DevBodas\Dev\Application\Command;
 
 class CreateSimulator
 {
-    private string $id;
+    private ?string $id;
     private string $name;
     private int $number;
     private string $direction;
     private int $route;
     private string $date;
+    private int $attempts;
 
 
     /**
      * Simulator constructor.
-     * @param String $id
-     * @param String $name
-     * @param Int $number
-     * @param String $direction
-     * @param Int $route
+     *
+     * @param String|null $id
+     * @param String      $name
+     * @param Int         $number
+     * @param String      $direction
+     * @param Int         $route
+     * @param String      $date
+     * @param Int         $attempts
      */
     public function __construct(
+        ?String $id,
         String $name,
         Int $number,
         String $direction,
         Int $route,
-        String $date
+        String $date,
+        int $attempts
     ) {
+        $this->id = $id;
         $this->name = $name;
         $this->number = $number;
         $this->direction = $direction;
         $this->route = $route;
         $this->date = $date;
+        $this->attempts = $attempts;
+    }
+
+    /**
+     * @return String|null
+     */
+    public function id(): ?String
+    {
+        return $this->id ?? null;
     }
 
     /**
@@ -74,6 +90,14 @@ class CreateSimulator
     public function date(): String
     {
         return $this->date;
+    }
+
+    /**
+     * @return Int
+     */
+    public function attempts(): Int
+    {
+        return $this->attempts;
     }
 
 }

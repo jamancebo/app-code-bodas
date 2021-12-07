@@ -55,12 +55,4 @@ abstract class DoctrineRepository
         return $this->entityManager->getRepository($entityClass);
     }
 
-    /**
-     * @param AggregateRoot $entity
-     */
-    protected function findAll(AggregateRoot $entity): array
-    {
-        return $this->repository($entity)->findAll();
-    }
-
 }

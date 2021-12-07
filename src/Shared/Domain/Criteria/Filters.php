@@ -17,7 +17,7 @@ final class Filters extends Collection
     }
 
     /**
-     * @param array $values
+     * @param  array $values
      * @return Filters
      */
     public static function fromValues(array $values): self
@@ -32,7 +32,7 @@ final class Filters extends Collection
     }
 
     /**
-     * @param Filter $filter
+     * @param  Filter $filter
      * @return Filters
      */
     public function add(Filter $filter): self

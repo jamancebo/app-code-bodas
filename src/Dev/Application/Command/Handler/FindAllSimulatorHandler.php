@@ -4,16 +4,23 @@ declare(strict_types=1);
 
 namespace DevBodas\Dev\Application\Command\Handler;
 
-use DevBodas\Dev\Application\Command\FindSimulator;
+use DevBodas\Dev\Application\Command\FindAllSimulator;
+use DevBodas\Dev\Domain\Exception\NotFoundSimulator;
+use DevBodas\Dev\Domain\Repository\CacheSimulatorRepository;
 use DevBodas\Dev\Domain\Repository\SimulatorRepository;
+use DevBodas\Shared\Domain\Criteria\Criteria;
+use DevBodas\Shared\Domain\Criteria\Filters;
 use Exception;
 
-class FindSimulatorHandler
+class FindAllSimulatorHandler
 {
     private SimulatorRepository $repository;
+    private CacheSimulatorRepository $cacheRepository;
+    private const UNIQUESIMULATOR = 'nuptic-43';
 
     /**
      *  FindSimulatorHandler constructor.
+     *
      * @param SimulatorRepository $repository
      */
     public function __construct(SimulatorRepository $repository)
@@ -22,24 +29,21 @@ class FindSimulatorHandler
     }
 
     /**
-     * @param FindSimulator $command
+     * @param  FindAllSimulator $command
      * @return array
      * @throws Exception
      */
-    public function handle(FindSimulator $command): array
+    public function handle(FindAllSimulator $command): array
     {
-        $user = $this->repository->find(
-            Id::fromString($command->id())
-        );
+        $filters = ['id' => $command->id(),'name' => self::UNIQUESIMULATOR];
+        $criteria = Criteria::create(Filters::fromValues($filters));
 
-        if ($user === null) {
-            throw new Exception("No User found", 404);
+        $simulators = $this->repository->findBy($criteria);
+
+        if (empty($simulators)) {
+            throw new NotFoundSimulator("No simulator found", 404);
         }
 
-        if ($user->deletedAt() !== null) {
-            throw new Exception("User deleted", 404);
-        }
-
-        return $user;
+        return $simulators;
     }
 }

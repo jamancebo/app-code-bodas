@@ -31,7 +31,7 @@ class AggregateRoot
     }
 
     /**
-     * @param DomainEvent $event
+     * @param  DomainEvent $event
      * @return void
      */
     protected function recordThat(DomainEvent $event): void

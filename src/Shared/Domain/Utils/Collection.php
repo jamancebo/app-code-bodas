@@ -57,7 +57,7 @@ abstract class Collection implements Countable, IteratorAggregate
     }
 
     /**
-     * @param int $index
+     * @param  int $index
      * @return object
      */
     public function item(int $index): object
@@ -66,7 +66,7 @@ abstract class Collection implements Countable, IteratorAggregate
     }
 
     /**
-     * @param array $items
+     * @param  array $items
      * @return void
      */
     public function checkTypes(array $items): void
@@ -82,7 +82,7 @@ abstract class Collection implements Countable, IteratorAggregate
     }
 
     /**
-     * @param Collection|null $otherCollection
+     * @param  Collection|null $otherCollection
      * @return bool
      */
     public function equals(?Collection $otherCollection): bool

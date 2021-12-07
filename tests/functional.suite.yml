@@ -1,0 +1,15 @@
+actor: FunctionalTester
+modules:
+    enabled:
+        - Symfony:
+              app_path: 'src'
+              environment: 'test'
+              kernel_class: 'DevBodas\Kernel'
+        - REST:
+              url: /
+              depends: Symfony
+        - Asserts
+coverage:
+    enabled: true
+    include:
+        - src/Dev/Infrastructure/EntryPoint/*

@@ -18,8 +18,8 @@ abstract class StringCustomType extends StringType
     }
 
     /**
-     * @param string $value
-     * @param AbstractPlatform $platform
+     * @param  string           $value
+     * @param  AbstractPlatform $platform
      * @return mixed
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)

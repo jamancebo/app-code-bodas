@@ -14,9 +14,9 @@ class Criteria
 
     /**
      * @param Filters|null $filters
-     * @param Orders|null $orders
-     * @param int|null $offset
-     * @param int|null $limit
+     * @param Orders|null  $orders
+     * @param int|null     $offset
+     * @param int|null     $limit
      */
     private function __construct(
         ?Filters $filters = null,
@@ -39,10 +39,10 @@ class Criteria
     }
 
     /**
-     * @param Filters|null $filters
-     * @param Orders|null $orders
-     * @param int|null $offset
-     * @param int|null $limit
+     * @param  Filters|null $filters
+     * @param  Orders|null  $orders
+     * @param  int|null     $offset
+     * @param  int|null     $limit
      * @return Criteria
      */
     public static function create(

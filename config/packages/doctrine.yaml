@@ -1,6 +1,6 @@
 doctrine:
     dbal:
-        url: 'mysql://bodas:bodas@db-bodas:3306/dev_bodas?serverVersion=8.0.27'
+        url: 'mysql://root:bodas@db-bodas:3306/dev_bodas?serverVersion=8.0.27'
         types:
             IdType: DevBodas\Dev\Infrastructure\Repository\Persistence\Doctrine\CustomType\IdType
     orm:

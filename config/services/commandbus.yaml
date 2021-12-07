@@ -9,3 +9,11 @@ services:
   DevBodas\Dev\Application\Command\Handler\CreateSimulatorHandler:
     tags:
       - { name: tactician.handler, command: DevBodas\Dev\Application\Command\CreateSimulator, bus: default }
+
+  DevBodas\Dev\Application\Command\Handler\FindAllSimulatorHandler:
+    tags:
+      - { name: tactician.handler, command: DevBodas\Dev\Application\Command\FindAllSimulator, bus: default }
+
+  DevBodas\Dev\Application\Command\Handler\CacheFindAllSimulatorHandler:
+    tags:
+      - { name: tactician.handler, command: DevBodas\Dev\Application\Command\CacheFindAllSimulator, bus: default }

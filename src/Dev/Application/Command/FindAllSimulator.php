@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace DevBodas\Dev\Application\Command;
 
-class FindSimulator
+class FindAllSimulator
 {
     private string $id;
 
     /**
      * FindSimulator constructor.
+     *
      * @param string $id
      */
     public function __construct(string $id)

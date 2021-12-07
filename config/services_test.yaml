@@ -1,0 +1,18 @@
+services:
+  _defaults:
+    public: true
+
+  #  DevAway\KartCompetition\Competition\Domain\Repository\RaceRepository:
+  #    class: 'DevAway\KartCompetition\Competition\Infrastructure\Repository\MysqlRaceRepository'
+  #    arguments: ['@doctrine.orm.entity_manager']
+
+  DevBodas\Tests\Integration\Shared\Infrastructure\DataFixtures\MysqlFixtureLoader:
+    class: 'DevBodas\Tests\Integration\Shared\Infrastructure\DataFixtures\MysqlFixtureLoader'
+    arguments:
+      - '@doctrine.orm.entity_manager'
+      - '@DevBodas\Dev\Domain\Repository\SimulatorRepository'
+
+  DevBodas\Tests\Integration\Shared\Infrastructure\DataFixtures\RedisFixtureLoader:
+    class: 'DevBodas\Tests\Integration\Shared\Infrastructure\DataFixtures\RedisFixtureLoader'
+    arguments:
+      - '@DevBodas\Dev\Domain\Repository\CacheSimulatorRepository'

@@ -36,7 +36,7 @@ class StringValueObject
     }
 
     /**
-     * @param string|null $value
+     * @param  string|null $value
      * @return static|null
      */
     public static function fromString(?string $value): ?self
@@ -49,7 +49,7 @@ class StringValueObject
     }
 
     /**
-     * @param StringValueObject|null $other
+     * @param  StringValueObject|null $other
      * @return bool
      */
     public function equals(?StringValueObject $other): bool

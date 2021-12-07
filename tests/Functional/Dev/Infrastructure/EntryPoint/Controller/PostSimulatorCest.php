@@ -8,9 +8,9 @@ use Codeception\Util\HttpCode;
 use DevBodas\Tests\Functional\Shared\Infrastructure\Codeception\FunctionalCestCase;
 use FunctionalTester;
 
-class PostUserCest extends FunctionalCestCase
+class PostSimulatorCest extends FunctionalCestCase
 {
-    //private const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2wiOiJhZG1pbiIsImV4cCI6MTgwNjMwNjUyMH0.T0EnxMFv95p-n-HTUEmRDlHAJD7YUzXqZpc9YDP2824';
+    private const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2wiOiJhZG1pbiIsImV4cCI6MTgwNjMwNjUyMH0.-wz9SQstNzcX1QdzppCWwRzYvAOjba5XrbeQuGe44Nc';
 
     public function _before(FunctionalTester $I)
     {
@@ -24,14 +24,14 @@ class PostUserCest extends FunctionalCestCase
         $this->purge();
     }
 
-    /*public function testErrorWhenUnauthorizedRole(FunctionalTester $I)
+    public function testErrorWhenUnauthorizedRole(FunctionalTester $I)
     {
         // phpcs:ignore Generic.Files.LineLength -- JWT cannot be shortened
         $jwtRoleGuest = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2wiOiJndWVzdCIsImV4cCI6MTgwNjMwNjUyMH0.teAzg9HalGvJnGPcNWYGY7vTWZtbcmoCePJEEUwAPHY';
         $I->haveHttpHeader('Authorization', 'Bearer ' . $jwtRoleGuest);
-        $I->sendPost('v1/user', '');
+        $I->sendPost('v1/simulator', '');
         $I->seeResponseCodeIs(HttpCode::UNAUTHORIZED);
-    }*/
+    }
 
     /**
      * @param FunctionalTester $I
@@ -46,7 +46,7 @@ class PostUserCest extends FunctionalCestCase
             ]
         ];
         $I->haveHttpHeader('Content-Type', 'application/json');
-        //$I->haveHttpHeader('Authorization', 'Bearer ' . self::TOKEN);
+        $I->haveHttpHeader('Authorization', 'Bearer ' . self::TOKEN);
         $I->sendPost('v1/simulator', $simulator);
         $I->seeResponseCodeIs(HttpCode::UNPROCESSABLE_ENTITY);
     }
@@ -58,14 +58,15 @@ class PostUserCest extends FunctionalCestCase
     {
         $simulator = [
             "id" => "03bd64ba-b257-48bc-8f07-5cde33b4e745",
-            "number" =>  16,
+            "number" =>  51,
             "nameServer" =>  "nuptic-43",
             "direction" =>  "este",
-            "route" =>  10
+            "route" =>  10,
+            "attempts" => 1
         ];
 
         $I->haveHttpHeader('Content-Type', 'application/json');
-        //$I->haveHttpHeader('Authorization', 'Bearer ' . self::TOKEN);
+        $I->haveHttpHeader('Authorization', 'Bearer ' . self::TOKEN);
         $I->sendPOST('/v1/simulator', $simulator);
 
         $I->seeResponseIsJson();

@@ -10,3 +10,10 @@ post_simulator:
   methods: POST
   requirements:
     version: v1
+
+get_simulator:
+  path: /{version}/simulator/{id}
+  controller: DevBodas\Dev\Infrastructure\EntryPoint\Controller\GetSimulator
+  methods: GET
+  requirements:
+    version: v1

@@ -11,7 +11,7 @@ use Exception;
 class SimulatorToArray
 {
     /**
-     * @param Simulator $Simulator
+     * @param  Simulator $Simulator
      * @return array
      */
     public function transform(Simulator $Simulator): array
@@ -21,12 +21,14 @@ class SimulatorToArray
             'name' => $Simulator->name(),
             'number' => $Simulator->number(),
             'direction' => $Simulator->direction(),
-            'route' => $Simulator->route()
+            'route' => $Simulator->route(),
+            'date' => $Simulator->date(),
+            'attempts' => $Simulator->attempts()
         ];
     }
 
     /**
-     * @param array $data
+     * @param  array $data
      * @return Simulator
      * @throws Exception
      */
@@ -37,7 +39,9 @@ class SimulatorToArray
             $data['name'],
             $data['number'],
             $data['direction'],
-            $data['route']
+            $data['route'],
+            $data['date'],
+            $data['attempts']
         );
     }
 }

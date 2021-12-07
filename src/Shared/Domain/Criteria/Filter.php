@@ -12,7 +12,7 @@ final class Filter
 
     /**
      * @param string $field
-     * @param mixed $value
+     * @param mixed  $value
      */
     private function __construct(string $field, $value)
     {
@@ -21,8 +21,8 @@ final class Filter
     }
 
     /**
-     * @param string $field
-     * @param mixed $value
+     * @param  string $field
+     * @param  mixed  $value
      * @return Filter
      */
     public static function fromValues(string $field, $value): self

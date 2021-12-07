@@ -11,8 +11,8 @@ class EntryPointToJsonResponse
 {
 
     /**
-     * @param array $entity
-     * @param integer $code
+     * @param  array   $entity
+     * @param  integer $code
      * @return JsonResponse
      */
     public function response(array $entity, int $code): JsonResponse
@@ -26,8 +26,8 @@ class EntryPointToJsonResponse
     }
 
     /**
-     * @param string $data
-     * @param integer $code
+     * @param  string  $data
+     * @param  integer $code
      * @return JsonResponse
      */
     public function error(string $data, int $code): JsonResponse

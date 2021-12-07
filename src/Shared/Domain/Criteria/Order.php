@@ -23,8 +23,8 @@ final class Order
     }
 
     /**
-     * @param string $field
-     * @param string $type
+     * @param  string $field
+     * @param  string $type
      * @return Order
      */
     public static function fromValues(string $field, string $type): self
@@ -33,7 +33,7 @@ final class Order
     }
 
     /**
-     * @param string $order
+     * @param  string $order
      * @return Order
      */
     public static function fromString(string $order): self
@@ -46,7 +46,7 @@ final class Order
     }
 
     /**
-     * @param string $field
+     * @param  string $field
      * @return Order
      */
     public static function createAsc(string $field): self
@@ -55,7 +55,7 @@ final class Order
     }
 
     /**
-     * @param string $field
+     * @param  string $field
      * @return Order
      */
     public static function createDesc(string $field): self

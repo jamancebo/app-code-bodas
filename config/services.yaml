@@ -24,3 +24,9 @@ services:
         class: 'DevBodas\Dev\Infrastructure\Repository\Persistence\MysqlSimulatorRepository'
         arguments: [ '@doctrine.orm.entity_manager' ]
 
+    DevBodas\Dev\Domain\Repository\CacheSimulatorRepository:
+        class: 'DevBodas\Dev\Infrastructure\Repository\Persistence\RedisSimulatorRepository'
+
+    DevBodas\Dev\Domain\Service\JWTDecoder:
+        arguments:
+            - '%env(resolve:JWT_SECRET)%'

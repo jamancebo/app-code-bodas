@@ -10,10 +10,13 @@
             <generator strategy="NONE" />
         </id>
         <field name="name" type="text" />
-        <field name="number" type="integer" />
+        <id name="number" type="integer" >
+            <generator strategy="NONE" />
+        </id>
         <field name="direction" type="text"/>
         <field name="route" type="integer" />
         <field name="date" type="text" />
+        <field name="attempts" type="integer" />
     </entity>
 
 </doctrine-mapping>

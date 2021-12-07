@@ -15,14 +15,18 @@ class Simulator extends AggregateRoot
     private string $direction;
     private int $route;
     private string $date;
+    private int $attempts;
 
     /**
      * Simulator constructor.
-     * @param Id $id
+     *
+     * @param Id     $id
      * @param String $name
-     * @param Int $number
+     * @param Int    $number
      * @param String $direction
-     * @param Int $route
+     * @param Int    $route
+     * @param string $date
+     * @param int    $attempts
      */
     public function __construct(
         Id $id,
@@ -30,7 +34,8 @@ class Simulator extends AggregateRoot
         Int $number,
         String $direction,
         Int $route,
-        string $date
+        string $date,
+        int $attempts
     ) {
         $this->id = $id;
         $this->name = $name;
@@ -38,14 +43,17 @@ class Simulator extends AggregateRoot
         $this->direction = $direction;
         $this->route = $route;
         $this->date = $date;
+        $this->attempts = $attempts;
     }
 
     /**
-     * @param Id $id
-     * @param String $name
-     * @param Int $number
-     * @param String $direction
-     * @param Int $route
+     * @param  Id     $id
+     * @param  String $name
+     * @param  Int    $number
+     * @param  String $direction
+     * @param  Int    $route
+     * @param  string $date
+     * @return Simulator
      */
     public static function instantiate(
         Id $id,
@@ -53,9 +61,10 @@ class Simulator extends AggregateRoot
         Int $number,
         String $direction,
         Int $route,
-        string $date
+        string $date,
+        Int $attemps
     ): self {
-        return new Simulator($id, $name, $number, $direction, $route,$date);
+        return new Simulator($id, $name, $number, $direction, $route, $date, $attemps);
     }
 
     /**
@@ -104,5 +113,21 @@ class Simulator extends AggregateRoot
     public function date(): String
     {
         return $this->date;
+    }
+
+    /**
+     * @return Int
+     */
+    public function attempts(): Int
+    {
+        return $this->attempts;
+    }
+
+    /**
+     * @return Int
+     */
+    public function addAttempts(): Int
+    {
+        ++$this->attempts;
     }
 }

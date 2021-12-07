@@ -25,7 +25,7 @@ class Uuid
     }
 
     /**
-     * @param string $aggregateId
+     * @param  string $aggregateId
      * @return self
      */
     public static function fromString(string $aggregateId): self
@@ -50,7 +50,7 @@ class Uuid
     }
 
     /**
-     * @param string $id
+     * @param  string $id
      * @return void
      */
     private function ensureIsValidUuid(string $id): void
@@ -61,7 +61,7 @@ class Uuid
     }
 
     /**
-     * @param Uuid $other
+     * @param  Uuid $other
      * @return boolean
      */
     public function equals(Uuid $other): bool

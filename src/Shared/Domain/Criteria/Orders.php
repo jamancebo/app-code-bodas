@@ -17,7 +17,7 @@ final class Orders extends Collection
     }
 
     /**
-     * @param array $values
+     * @param  array $values
      * @return Orders
      */
     public static function fromValues(array $values): self
@@ -32,7 +32,7 @@ final class Orders extends Collection
     }
 
     /**
-     * @param array $orders
+     * @param  array $orders
      * @return Orders
      */
     public static function fromStrings(array $orders): self
@@ -46,7 +46,7 @@ final class Orders extends Collection
     }
 
     /**
-     * @param Order $order
+     * @param  Order $order
      * @return Orders
      */
     public function add(Order $order): self

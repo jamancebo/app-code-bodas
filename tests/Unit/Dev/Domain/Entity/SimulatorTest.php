@@ -21,6 +21,7 @@ class SimulatorTest extends ModuleUnitCase
         $direction = self::points[$faker->numberBetween(0,3)];
         $route = $faker->numberBetween(10,20);
         $date = $faker->date();
+        $attempts = $faker->numberBetween(0,1);
 
         $user = Simulator::instantiate(
             $id,
@@ -28,7 +29,8 @@ class SimulatorTest extends ModuleUnitCase
             $number,
             $direction,
             $route,
-            $date
+            $date,
+            $attempts
         );
 
         $this->assertInstanceOf(Simulator::class, $user);

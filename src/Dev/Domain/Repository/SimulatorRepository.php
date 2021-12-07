@@ -5,9 +5,7 @@ declare(strict_types=1);
 namespace DevBodas\Dev\Domain\Repository;
 
 use DevBodas\Dev\Domain\Entity\Simulator;
-use DevBodas\Dev\Domain\ValueObject\Id;
-use Doctrine\Common\Collections\Criteria;
-use Exception;
+use DevBodas\Shared\Domain\Criteria\Criteria;
 
 interface SimulatorRepository
 {
@@ -17,15 +15,13 @@ interface SimulatorRepository
     public function create(Simulator $Simulator): void;
 
     /**
-     * @param Id $id
-     * @throws Exception
-     * @return Simulator|null
+     * @param  Criteria $criteria
+     * @return Simulator[]
      */
-    public function find(Id $id): ?Simulator;
+    public function findBy(Criteria $criteria): array;
 
     /**
-     * @throws Exception
-     * @return Simulator|null
+     * @param Simulator $Simulator
      */
-    public function findAllElements(Simulator $simulator): ?Array;
+    public function update(Simulator $Simulator): void;
 }

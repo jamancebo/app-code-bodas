@@ -20,7 +20,7 @@ interface DomainEvent
     public function toPrimitives(): array;
 
     /**
-     * @param array $primitives
+     * @param  array $primitives
      * @return self
      */
     public static function fromPrimitives(array $primitives): self;

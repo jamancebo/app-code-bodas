@@ -6,8 +6,8 @@ namespace DevBodas\Dev\Infrastructure\Repository\Persistence;
 
 use DevBodas\Dev\Domain\Entity\Simulator;
 use DevBodas\Dev\Domain\Repository\SimulatorRepository;
+use DevBodas\Shared\Domain\Criteria\Criteria;
 use DevBodas\Shared\Infrastructure\Repository\Doctrine\DoctrineRepository;
-use DevBodas\Dev\Domain\ValueObject\Id;
 use Doctrine\ORM\EntityManager;
 
 class MysqlSimulatorRepository extends DoctrineRepository implements SimulatorRepository
@@ -31,16 +31,21 @@ class MysqlSimulatorRepository extends DoctrineRepository implements SimulatorRe
     /**
      * @inheritDoc
      */
-    public function find(Id $id): ?Simulator
+    public function findBy(Criteria $criteria): array
     {
-        return $this->entityManager->find(Simulator::class, $id->value());
+        return $this->repository(Simulator::class)->findBy(
+            $criteria->plainFilters(),
+            $criteria->plainOrders(),
+            $criteria->limit(),
+            $criteria->offset()
+        );
     }
 
     /**
      * @inheritDoc
      */
-    public function findAllElements(Simulator $simulator): array
+    public function update(Simulator $simulator): void
     {
-        return $this->findAll($simulator);
+        $this->persist($simulator);
     }
 }

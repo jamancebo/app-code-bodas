@@ -23,7 +23,7 @@ class TacticianCommandBus implements CommandBus
     }
 
     /**
-     * @param object $command
+     * @param  object $command
      * @return mixed
      */
     public function handle($command)
